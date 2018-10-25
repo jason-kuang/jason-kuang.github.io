@@ -17,18 +17,5 @@ function playSong(synth, arrayNotes) {
         playNote(synth,note,duration,time)
 }
 }
-function razorSynth() {
-    var synthA = new Tone.Synth({
-	oscillator : {
-  	type : 'fatsawtooth',
-  },
-  envelope : {
-  	attack : 0.007,
-    decay : 0.12,
-    sustain: 0.05,
-    release: 1.0
-  }
-}).toMaster()
-}
 dict = [{"note":"G3","duration":"8n","time":5},{"note":"G3","duration":"8n","time":5.66},{"note":"G3","duration":"8n","time":6.33},{"note":"G3","duration":"4n","time":7},{"note":"E3","duration":"4n","time":9},{"note":"F3","duration":"4n","time":11},{"note":"G3","duration":"8n","time":13},{"note":"F3","duration":"8n","time":14.33},{"note":"G3","duration":"2n","time":15}] 
 playSong(basicSynth(),[{"note":"G3","duration":"8n","time":5},{"note":"G3","duration":"8n","time":5.66},{"note":"G3","duration":"8n","time":6.33},{"note":"G3","duration":"4n","time":7},{"note":"E3","duration":"4n","time":9},{"note":"F3","duration":"4n","time":11},{"note":"G3","duration":"8n","time":13},{"note":"F3","duration":"8n","time":14.33},{"note":"G3","duration":"2n","time":15}] )
