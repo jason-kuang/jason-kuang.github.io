@@ -1,10 +1,17 @@
-
 <html>
 <head>
-    <title>no look at src please</title>
-    <script src="https://tonejs.github.io/build/Tone.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="map.js"></script>
+    <style>
+        body, div{
+            height: 100%;
+        }
+    </style>
 </head>
-<body>
-    <script src="sounds.js"></script>
+
+<body onload="loadMap();">
+
+<div id="map"></div>
+
 </body>
 </html>
