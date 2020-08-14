@@ -1,6 +1,6 @@
 This is my website that holds my resume and a little bit more about me.
 
-
+Visit www.jasonkuang.me to see it!
 
 ## Copyright and License
 
