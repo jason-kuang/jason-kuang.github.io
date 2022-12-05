@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         {links.slice(0, 4).map((link) => (
           <li key={link.title}>
             <a
-              className='link flex w-fit items-center gap-2 lowercase tracking-wider hover:-translate-y-1 hover:opacity-100 hover:font-extrabold hover:text-blue-500'
+              className='link flex w-fit items-center gap-2 lowercase tracking-wider hover:opacity-100 hover:font-extrabold hover:text-blue-500'
               href={link.href}
               target='_blank'
               rel='noreferrer'
@@ -53,8 +53,7 @@ const Home: NextPage = () => {
             but i'll do something with it soon.<br></br>
           </p>
           <p>
-            please mouse over the links above for my profile. <br></br>
-            in order to view my resume, or to contact me.<br></br>
+            check out my resume and more from the above.<br></br>
           </p>
         </div>
         </Section>

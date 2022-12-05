@@ -11,7 +11,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className='flex justify-start py-8 grid-cols-4 sm:grid'>
+    <header className='flex justify-start py-8 px-4 grid-cols-4 sm:grid '>
         {mounted && (
           <button
             onClick={() =>
