@@ -1,3 +1,4 @@
+import '@fontsource/jetbrains-mono';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
