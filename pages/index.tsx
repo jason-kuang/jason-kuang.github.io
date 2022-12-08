@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         {links.slice(0, 4).map((link) => (
           <li key={link.title}>
             <a
-              className='link flex w-fit items-center gap-2 lowercase tracking-wider hover:opacity-100 hover:font-extrabold hover:text-blue-500'
+              className='link flex w-fit items-center gap-2 lowercase tracking-wider hover:opacity-100 hover:font-extrabold hover:text-emerald-500'
               href={link.href}
               target='_blank'
               rel='noreferrer'
