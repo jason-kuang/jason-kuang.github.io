@@ -46,7 +46,7 @@ const Home: NextPage = () => {
           </p>
           <p>
             i work on business messaging. <br></br>
-            primarily on in thread experience api.<br></br>
+            primarily on click to whatsapp performance.<br></br>
           </p>
           <p>
             this website has a ton of empty space. <br></br>
