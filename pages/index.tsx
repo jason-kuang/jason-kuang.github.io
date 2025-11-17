@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
 import { links, email } from '../components/Contacts';
@@ -7,8 +8,10 @@ import Image from 'next/image';
 
 const Home: NextPage = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [greeting, setGreeting] = useState('');
+  const [greetingTime, setGreetingTime] = useState('');
   const [timeMessage, setTimeMessage] = useState('');
+  const [displayedGreeting, setDisplayedGreeting] = useState('good ');
+  const [displayedTimeMessage, setDisplayedTimeMessage] = useState('');
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -16,15 +19,15 @@ const Home: NextPage = () => {
       const hour = now.getHours();
 
       // Determine greeting based on local time
-      let greetingText = '';
+      let timeOfDay = '';
       if (hour >= 5 && hour < 12) {
-        greetingText = 'good morning';
+        timeOfDay = 'morning';
       } else if (hour >= 12 && hour < 17) {
-        greetingText = 'good afternoon';
+        timeOfDay = 'afternoon';
       } else if (hour >= 17 && hour < 24) {
-        greetingText = 'good evening';
+        timeOfDay = 'evening';
       } else {
-        greetingText = 'good evening'; // late night/early morning
+        timeOfDay = 'evening'; // late night/early morning
       }
 
       // Get NYC time
@@ -46,7 +49,7 @@ const Home: NextPage = () => {
         message = `it's even ${laterOrEarlier} in nyc though, i'm ${diff} hour${diff !== 1 ? 's' : ''} ${aheadOrBehind} of you!`;
       }
 
-      setGreeting(greetingText);
+      setGreetingTime(timeOfDay);
       setTimeMessage(message);
     };
 
@@ -55,6 +58,64 @@ const Home: NextPage = () => {
     const interval = setInterval(updateGreeting, 60000);
     return () => clearInterval(interval);
   }, []);
+
+  // Typing animation effect for greeting
+  useEffect(() => {
+    if (!greetingTime) return;
+
+    // Start with dots
+    setDisplayedGreeting('good ...');
+
+    // Delete dots one by one (500ms per dot)
+    const deleteDots = [
+      setTimeout(() => setDisplayedGreeting('good ..'), 500),
+      setTimeout(() => setDisplayedGreeting('good .'), 1000),
+      setTimeout(() => setDisplayedGreeting('good '), 1500),
+    ];
+
+    // Start typing the time of day after dots are deleted
+    let currentIndex = 0;
+    const startTypingDelay = setTimeout(() => {
+      const typingInterval = setInterval(() => {
+        if (currentIndex < greetingTime.length) {
+          setDisplayedGreeting('good ' + greetingTime.slice(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 300);
+    }, 1700); // Start after 1700ms (1500ms for dot deletion + 200ms buffer)
+
+    return () => {
+      deleteDots.forEach(timeout => clearTimeout(timeout));
+      clearTimeout(startTypingDelay);
+    };
+  }, [greetingTime]);
+
+  // Typing animation effect for time message
+  useEffect(() => {
+    if (!timeMessage) return;
+
+    setDisplayedTimeMessage('');
+    let currentIndex = 0;
+    const fullMessage = 'fun fact: ' + timeMessage;
+
+    // Start typing after greeting is done (1700ms for dots + greetingTime.length * 300ms + 200ms buffer)
+    const startDelay = 1700 + greetingTime.length * 300 + 200;
+
+    const delayTimeout = setTimeout(() => {
+      const typingInterval = setInterval(() => {
+        if (currentIndex < fullMessage.length) {
+          setDisplayedTimeMessage(fullMessage.slice(0, currentIndex + 1));
+          currentIndex++;
+        } else {
+          clearInterval(typingInterval);
+        }
+      }, 100);
+    }, startDelay);
+
+    return () => clearTimeout(delayTimeout);
+  }, [timeMessage, greetingTime]);
 
   return (
     <Layout
@@ -93,11 +154,11 @@ const Home: NextPage = () => {
       </div>
   
 
-      <Section header={`${greeting}.`}>
+      <Section header={`${displayedGreeting}.`}>
       <div className='flex flex-col gap-4 text-right lowercase'>
-          {timeMessage && (
+          {displayedTimeMessage && (
             <p className='text-xs opacity-70'>
-              fun fact: {timeMessage}
+              {displayedTimeMessage}
             </p>
           )}
           <p>
