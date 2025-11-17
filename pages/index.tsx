@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import Layout from '../components/Layout';
 import Section from '../components/Section';
 import { links, email } from '../components/Contacts';
@@ -178,46 +179,56 @@ const Home: NextPage = () => {
       <Section header='side projects.'>
         <div className='flex flex-col gap-2 text-right lowercase pr-4 sm:pr-0'>
           <div
-            className='group cursor-pointer'
+            className='cursor-pointer'
             onClick={() => setExpandedProject(expandedProject === 'whatipaid' ? null : 'whatipaid')}
           >
-            <a
-              href='https://whatipaid.fyi'
-              target='_blank'
-              rel='noreferrer'
-              className='link text-emerald-500 hover:opacity-100 hover:underline'
-              onClick={(e) => {
-                // Allow link click on desktop, prevent on mobile when toggling
-                if (window.innerWidth < 640 && expandedProject !== 'whatipaid') {
-                  e.preventDefault();
-                }
-              }}
-            >
-              www.whatipaid.fyi <span className='font-normal'>↗</span>
-            </a>
-            <p className={`max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000 ${expandedProject === 'whatipaid' ? 'max-h-40 mt-1' : ''}`}>
+            <div className='flex items-center justify-end gap-2'>
+              <span className='text-emerald-500 text-sm opacity-70'>
+                {expandedProject === 'whatipaid' ? <IoChevronUp /> : <IoChevronDown />}
+              </span>
+              <a
+                href='https://whatipaid.fyi'
+                target='_blank'
+                rel='noreferrer'
+                className='link text-emerald-500 hover:opacity-100 hover:underline'
+                onClick={(e) => {
+                  // Allow link click on desktop, prevent on mobile when toggling
+                  if (window.innerWidth < 640 && expandedProject !== 'whatipaid') {
+                    e.preventDefault();
+                  }
+                }}
+              >
+                www.whatipaid.fyi <span className='font-normal'>↗</span>
+              </a>
+            </div>
+            <p className={`max-h-0 overflow-hidden transition-all duration-1000 ${expandedProject === 'whatipaid' ? 'max-h-40 mt-1' : ''}`}>
               crowdsourced platform for sharing real healthcare costs to bring transparency to elective medical procedure pricing.
             </p>
           </div>
           <div
-            className='group cursor-pointer'
+            className='cursor-pointer'
             onClick={() => setExpandedProject(expandedProject === 'valor' ? null : 'valor')}
           >
-            <a
-              href='http://github.com/jason-kuang/Valor'
-              target='_blank'
-              rel='noreferrer'
-              className='link text-emerald-500 hover:opacity-100 hover:underline'
-              onClick={(e) => {
-                // Allow link click on desktop, prevent on mobile when toggling
-                if (window.innerWidth < 640 && expandedProject !== 'valor') {
-                  e.preventDefault();
-                }
-              }}
-            >
-              valor <span className='font-normal'>↗</span>
-            </a>
-            <p className={`max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000 ${expandedProject === 'valor' ? 'max-h-40 mt-1' : ''}`}>
+            <div className='flex items-center justify-end gap-2'>
+              <span className='text-emerald-500 text-sm opacity-70'>
+                {expandedProject === 'valor' ? <IoChevronUp /> : <IoChevronDown />}
+              </span>
+              <a
+                href='http://github.com/jason-kuang/Valor'
+                target='_blank'
+                rel='noreferrer'
+                className='link text-emerald-500 hover:opacity-100 hover:underline'
+                onClick={(e) => {
+                  // Allow link click on desktop, prevent on mobile when toggling
+                  if (window.innerWidth < 640 && expandedProject !== 'valor') {
+                    e.preventDefault();
+                  }
+                }}
+              >
+                valor <span className='font-normal'>↗</span>
+              </a>
+            </div>
+            <p className={`max-h-0 overflow-hidden transition-all duration-1000 ${expandedProject === 'valor' ? 'max-h-40 mt-1' : ''}`}>
               discord bot for league of legends players tracking real-time match data and live leaderboards with self-updating champion stats.
             </p>
           </div>
