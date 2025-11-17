@@ -144,8 +144,8 @@ const Home: NextPage = () => {
         </div>
       </Section>
 
-      <Section header='currently.' headerClassName='!text-sm'>
-        <div className='flex flex-col gap-2 text-right lowercase text-xs opacity-80'>
+      <Section header='currently.' headerClassName='!text-sm !text-left'>
+        <div className='flex flex-col gap-2 text-left lowercase text-xs opacity-80'>
           <div>
             <div className='text-emerald-500'>learning:</div>
             <div>programming w ai. figuring out if lasik is right for me. fujifilm colors.</div>
