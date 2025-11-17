@@ -1,3 +1,2 @@
-This is my personal website.
-
-www.jasonkuang.me
+this is my personal website.
+see www.jasonkuang.me
