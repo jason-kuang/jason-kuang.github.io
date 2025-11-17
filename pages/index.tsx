@@ -163,7 +163,7 @@ const Home: NextPage = () => {
           )}
           <p>
             my name is jason kuang.<br></br>
-            i am a Software Engineer at meta in nyc.<br></br>
+            i am a Software Engineer at <span style={{ color: '#0081FB' }}>meta</span> in nyc.<br></br>
           </p>
           <p>
             i work on business messaging, formerly on in-thread experiences and now on click to whatsapp ads.
@@ -175,8 +175,8 @@ const Home: NextPage = () => {
       </Section>
 
       <Section header='side projects.'>
-        <div className='flex flex-col gap-4 text-right lowercase'>
-          <div>
+        <div className='flex flex-col gap-2 text-right lowercase'>
+          <div className='group'>
             <a
               href='https://whatipaid.fyi'
               target='_blank'
@@ -185,11 +185,11 @@ const Home: NextPage = () => {
             >
               www.whatipaid.fyi <span className='font-normal'>↗</span>
             </a>
-            <p className='mt-1'>
+            <p className='max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000'>
               crowdsourced platform for sharing real healthcare costs to bring transparency to elective medical procedure pricing.
             </p>
           </div>
-          <div>
+          <div className='group'>
             <a
               href='http://github.com/jason-kuang/Valor'
               target='_blank'
@@ -198,7 +198,7 @@ const Home: NextPage = () => {
             >
               valor <span className='font-normal'>↗</span>
             </a>
-            <p className='mt-1'>
+            <p className='max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000'>
               discord bot for league of legends players tracking real-time match data and live leaderboards with self-updating champion stats.
             </p>
           </div>
@@ -209,7 +209,7 @@ const Home: NextPage = () => {
         <div className='flex flex-col gap-2 text-left lowercase text-xs opacity-80'>
           <div>
             <div className='text-emerald-500'>learning:</div>
-            <div>programming w ai. figuring out if lasik is right for me. fujifilm colors.</div>
+            <div>programming w ai. figuring out if lasik is right for me. fujifilm colors. poker.</div>
           </div>
           <div>
             <div className='text-emerald-500'>listening:</div>
