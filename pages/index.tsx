@@ -12,6 +12,7 @@ const Home: NextPage = () => {
   const [timeMessage, setTimeMessage] = useState('');
   const [displayedGreeting, setDisplayedGreeting] = useState('good ');
   const [displayedTimeMessage, setDisplayedTimeMessage] = useState('');
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -155,7 +156,7 @@ const Home: NextPage = () => {
   
 
       <Section header={`${displayedGreeting}.`}>
-      <div className='flex flex-col gap-4 text-right lowercase'>
+      <div className='flex flex-col gap-4 text-right lowercase pr-4 sm:pr-0'>
           {displayedTimeMessage && (
             <p className='text-xs opacity-70'>
               {displayedTimeMessage}
@@ -175,30 +176,48 @@ const Home: NextPage = () => {
       </Section>
 
       <Section header='side projects.'>
-        <div className='flex flex-col gap-2 text-right lowercase'>
-          <div className='group'>
+        <div className='flex flex-col gap-2 text-right lowercase pr-4 sm:pr-0'>
+          <div
+            className='group cursor-pointer'
+            onClick={() => setExpandedProject(expandedProject === 'whatipaid' ? null : 'whatipaid')}
+          >
             <a
               href='https://whatipaid.fyi'
               target='_blank'
               rel='noreferrer'
               className='link text-emerald-500 hover:opacity-100 hover:underline'
+              onClick={(e) => {
+                // Allow link click on desktop, prevent on mobile when toggling
+                if (window.innerWidth < 640 && expandedProject !== 'whatipaid') {
+                  e.preventDefault();
+                }
+              }}
             >
               www.whatipaid.fyi <span className='font-normal'>↗</span>
             </a>
-            <p className='max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000'>
+            <p className={`max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000 ${expandedProject === 'whatipaid' ? 'max-h-40 mt-1' : ''}`}>
               crowdsourced platform for sharing real healthcare costs to bring transparency to elective medical procedure pricing.
             </p>
           </div>
-          <div className='group'>
+          <div
+            className='group cursor-pointer'
+            onClick={() => setExpandedProject(expandedProject === 'valor' ? null : 'valor')}
+          >
             <a
               href='http://github.com/jason-kuang/Valor'
               target='_blank'
               rel='noreferrer'
               className='link text-emerald-500 hover:opacity-100 hover:underline'
+              onClick={(e) => {
+                // Allow link click on desktop, prevent on mobile when toggling
+                if (window.innerWidth < 640 && expandedProject !== 'valor') {
+                  e.preventDefault();
+                }
+              }}
             >
               valor <span className='font-normal'>↗</span>
             </a>
-            <p className='max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000'>
+            <p className={`max-h-0 overflow-hidden group-hover:max-h-40 group-hover:mt-1 transition-all duration-1000 ${expandedProject === 'valor' ? 'max-h-40 mt-1' : ''}`}>
               discord bot for league of legends players tracking real-time match data and live leaderboards with self-updating champion stats.
             </p>
           </div>
@@ -206,7 +225,7 @@ const Home: NextPage = () => {
       </Section>
 
       <Section header='currently.' headerClassName='!text-sm !text-left'>
-        <div className='flex flex-col gap-2 text-left lowercase text-xs opacity-80'>
+        <div className='flex flex-col gap-2 text-left lowercase text-xs opacity-80 pl-4 sm:pl-0'>
           <div>
             <div className='text-emerald-500'>learning:</div>
             <div>programming w ai. figuring out if lasik is right for me. fujifilm colors. poker.</div>
