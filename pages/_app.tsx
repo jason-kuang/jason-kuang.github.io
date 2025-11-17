@@ -2,12 +2,19 @@ import '@fontsource/jetbrains-mono';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
+import Script from 'next/script';
 import '../styles/globals.css';
 import Header from '../components/Header';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
+      <Script
+        data-goatcounter="https://kuang316.goatcounter.com/count"
+        async
+        src="//gc.zgo.at/count.js"
+        strategy="afterInteractive"
+      />
       <ThemeProvider attribute='class' defaultTheme='dark'>
         <div className='m-auto flex w-full max-w-screen-sm flex-col '>
         <Header />
