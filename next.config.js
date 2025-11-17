@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: 'jason-kuang.github.io',
+  reactStrictMode: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
 }
 
-module.exports = {
-  reactStrictMode: true,
-}
+module.exports = nextConfig

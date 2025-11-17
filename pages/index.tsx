@@ -113,20 +113,6 @@ const Home: NextPage = () => {
         </div>
       </Section>
 
-      <Section header='currently.'>
-        <div className='flex flex-col gap-3 text-right lowercase'>
-          <div>
-            <span className='text-emerald-500'>learning:</span> programming w ai. figuring out if lasik is right for me. fujifilm colors.
-          </div>
-          <div>
-            <span className='text-emerald-500'>listening:</span> k-rnb. k-pop. edm.
-          </div>
-          <div>
-            <span className='text-emerald-500'>playing:</span> valorant. league of legends (#t1win). arc raiders.
-          </div>
-        </div>
-      </Section>
-
       <Section header='side projects.'>
         <div className='flex flex-col gap-4 text-right lowercase'>
           <div>
@@ -154,6 +140,23 @@ const Home: NextPage = () => {
             <p className='mt-1'>
               discord bot for league of legends players tracking real-time match data and live leaderboards with self-updating champion stats.
             </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section header='currently.' headerClassName='!text-sm'>
+        <div className='flex flex-col gap-2 text-right lowercase text-xs opacity-80'>
+          <div>
+            <div className='text-emerald-500'>learning:</div>
+            <div>programming w ai. figuring out if lasik is right for me. fujifilm colors.</div>
+          </div>
+          <div>
+            <div className='text-emerald-500'>listening:</div>
+            <div>k-rnb. k-pop. edm.</div>
+          </div>
+          <div>
+            <div className='text-emerald-500'>playing:</div>
+            <div>valorant. league of legends (#t1win). arc raiders.</div>
           </div>
         </div>
       </Section>
