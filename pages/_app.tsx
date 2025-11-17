@@ -8,7 +8,7 @@ import Header from '../components/Header';
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
-      <ThemeProvider attribute='class'>
+      <ThemeProvider attribute='class' defaultTheme='dark'>
         <div className='m-auto flex w-full max-w-screen-sm flex-col '>
         <Header />
 
@@ -18,10 +18,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               <AnimatePresence mode='wait'>
                 <motion.div
                   key={router.route}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{
+                    duration: 0.6,
+                    ease: [0.22, 1, 0.36, 1]
+                  }}
+                  exit={{ opacity: 0, y: -20 }}
                 >
                   <Component {...pageProps} />
                 </motion.div>

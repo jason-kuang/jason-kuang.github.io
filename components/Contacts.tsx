@@ -5,7 +5,7 @@ import {MdAlternateEmail} from 'react-icons/md';
 
 export const github = 'https://github.com/jason-kuang';
 export const linkedIn = 'https://www.linkedin.com/in/jasonkuang1/';
-export const email = 'jkuang5@buffalo.edu';
+export const email = 'kuang316@gmail.com';
 
 export const links: LinkInfo[] = [
   {
